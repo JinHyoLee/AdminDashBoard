@@ -35,3 +35,9 @@ src/
 6. Settings: 관리자 설정 구현
 
 API 연동이 필요해지면 TanStack Query를 추가할 예정임.
+
+
+
+https://github.com/user-attachments/assets/777ab781-0004-4d02-97b3-33db12d26d0c
+
+
