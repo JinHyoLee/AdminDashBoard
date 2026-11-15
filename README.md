@@ -75,4 +75,8 @@ src/
 
 ## 데모
 
-https://github.com/user-attachments/assets/777ab781-0004-4d02-97b3-33db12d26d0c
+
+
+https://github.com/user-attachments/assets/1febfde9-3acd-4590-a484-3f12231bb687
+
+
