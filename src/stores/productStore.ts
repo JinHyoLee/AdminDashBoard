@@ -7,6 +7,8 @@ interface ProductState {
   addProduct: (input: ProductInput) => void;
   updateProduct: (id: string, input: ProductInput) => void;
   deleteProduct: (id: string) => void;
+  /** 주문이 '결제'될 때 호출: 상품별로 수량만큼 재고를 줄임 */
+  decreaseStock: (items: { productId: string; quantity: number }[]) => void;
 }
 
 /** 기존 id 중 가장 큰 번호 + 1 → PRD-0016 같은 형식 */
@@ -33,6 +35,14 @@ export const useProductStore = create<ProductState>()(
       deleteProduct: (id) =>
         set((state) => ({
           products: state.products.filter((p) => p.id !== id),
+        })),
+
+      decreaseStock: (items) =>
+        set((state) => ({
+          products: state.products.map((p) => {
+            const item = items.find((i) => i.productId === p.id);
+            return item ? { ...p, stock: Math.max(0, p.stock - item.quantity) } : p;
+          }),
         })),
     }),
     // 브라우저 localStorage에 저장 → 새로고침해도 유지됨

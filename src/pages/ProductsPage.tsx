@@ -5,6 +5,7 @@ import Pagination from '../components/common/Pagination';
 import ProductFormModal from './ProductFormModal';
 import { useProductStore } from '../stores/productStore';
 import { CATEGORIES, isSoldOut, type Product } from '../types/product';
+import { won } from '../utils/format';
 
 const PAGE_SIZE = 10;
 
@@ -16,9 +17,6 @@ const COLUMNS: { key: SortKey; label: string }[] = [
   { key: 'price', label: '가격' },
   { key: 'stock', label: '재고' },
 ];
-
-/** 89000 → ₩89,000 */
-const won = (n: number) => `₩${n.toLocaleString('ko-KR')}`;
 
 /** 이미지가 있으면 썸네일, 없으면 기본 아이콘 */
 function Thumb({ src, size = 'sm' }: { src: string | null; size?: 'sm' | 'lg' }) {
